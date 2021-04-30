@@ -1,0 +1,48 @@
+﻿
+@model EditUserVM
+@{Layout = "_Layout";
+    ViewBag.Title = "Uppdatera mina uppgifter";
+}
+
+
+<header>
+    <h2>Mina uppgifter</h2>
+
+</header>
+<section class="container containerWithMaxWidth edit-user-container">
+
+    <form method="post" asp-controller="user" asp-action="edituser" enctype="multipart/form-data">
+
+        <div class="edit-user-div">
+            <label class="form-label" asp-for="FirstName"></label>
+            <input class="form-control contact" asp-for="FirstName" value="@Model.FirstName" />
+            <span asp-validation-for="FirstName"></span>
+        </div>
+        <div class="edit-user-div">
+            <label class="form-label" asp-for="UserName"></label>
+            <input class="form-control contact" asp-for="UserName" value="@Model.UserName" />
+            <span asp-validation-for="UserName"></span>
+        </div>
+
+        <div class="edit-user-div">
+            <label class="form-label" asp-for="Email"></label>
+            <input class="form-control contact" asp-for="Email" value="@Model.Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="edit-user-div">
+            <label class="form-label" asp-for="Password"></label>
+            <input class="form-control contact" asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="edit-user-div">
+            <label class="form-label" asp-for="PasswordRepeat"></label>
+            <input class="form-control contact" asp-for="PasswordRepeat" />
+            <span asp-validation-for="PasswordRepeat"></span>
+        </div>
+        <div class="edit-user-div">
+            <button class="btn btn-profile" type="submit" name="update">Uppdatera min användare</button>
+        </div>
+
+    </form>
+
+</section>

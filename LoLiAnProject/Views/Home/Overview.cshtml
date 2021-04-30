@@ -1,0 +1,70 @@
+﻿@model OverviewVM
+
+@{Layout = "_Layout";
+    ViewBag.Title = "Vad vill du göra nu?"; }
+
+
+<header>
+    <h2>Vad vill du göra nu?</h2>
+
+</header>
+
+<section class="d-flex align-items-center ">
+    <div class="d-flex container-fluid flex-wrap justify-content-around overview-container">
+        <div class="d-flex flex-column justify-content-center align-items-center overview-box">
+            <div class="overview-content d-flex flex-column align-items-center justify-content-around">
+                @if (!Model.DateExist)
+                {
+                    <a class="overview-heading-link" asp-controller="Home" asp-action="Register">
+                        <h4 class="overview-heading">Jag vill registrera min dag</h4>
+                    </a>
+                    <a asp-controller="Home" asp-action="Register">
+                        <img class="overview-img" src="~/Image/register.svg" alt="ikon för att registrera din dag" />
+                    </a> }
+                else
+                {
+                    <a class="overview-heading-link" asp-controller="Home" asp-action="DetailsEdit" asp-route-date="@Model.Date.ToShortDateString()">
+                        <h4 class="overview-heading">Jag vill uppdatera min dag</h4>
+                    </a>
+                    <a asp-controller="Home" asp-action="DetailsEdit" asp-route-date="@Model.Date.ToShortDateString()">
+                        <img class="overview-img" src="~/Image/register.svg" alt="ikon för att uppdatera din dag" />
+                    </a>}
+            </div>
+        </div>
+
+
+
+        <div class="d-flex flex-column justify-content-center align-items-center overview-box">
+            <div class="overview-content d-flex flex-column align-items-center justify-content-around">
+                <h4 class="overview-heading">Jag vill kika på en dag</h4>
+                <span class="datepicker-toggle">
+                    <span class="datepicker-toggle-button"></span>
+                    <input type="date" class="datepicker-input" id="calenderview" name="detail" min="2000-01-01" max="@DateTime.Now.ToShortDateString()">
+                </span>
+                @*<input type="date" class="datepicker-input" id="calenderview" name="detail" min="2000-01-01" max="@DateTime.Now.ToShortDateString()">*@
+            </div>
+        </div>
+
+
+
+        <div class="d-flex flex-column justify-content-center align-items-center overview-box">
+            <div class="overview-content d-flex flex-column align-items-center justify-content-around">
+                <a class="overview-heading-link" asp-controller="Home" asp-action="Charts">
+                    <h4 class="overview-heading">Jag vill se mitt mående över tid</h4>
+                </a>
+                <a asp-controller="Home" asp-action="Charts">
+                    <img class="overview-img" src="~/Image/line-chart.svg" alt="ikon för att se dina diagram" />
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.getElementById("calenderview").addEventListener("change", function () {
+        var input = this.value;
+        var url = "/home/details/" + input;
+        document.location.href = url;
+    });
+</script>

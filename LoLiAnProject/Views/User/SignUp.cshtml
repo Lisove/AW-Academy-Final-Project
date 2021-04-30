@@ -1,0 +1,143 @@
+﻿@model SignupVM
+@{Layout = "_Layout";
+    ViewBag.Title = "Bli medlem";
+}
+<header>
+    <h2>Bli medlem</h2>
+</header>
+<div class="container-sm d-flex container-login containerWithMaxWidth">
+
+
+    <div class="container d-flex justify-content-center">
+
+        <div class="d-flex flex-column justify-content-between align-items-center">
+
+            <form asp-controller="User" asp-action="SignUp">
+                <div class="container signup-container">
+                    <div class="login-div">
+                        <label class="form-label" asp-for="FirstName"></label>
+                        <input class="form-control" id="firstname" asp-for="FirstName" required />
+                        <span asp-validation-for="FirstName"></span>
+                    </div>
+                    <div class="login-div">
+                        <label class="form-label" asp-for="Email"></label>
+                        <input class="form-control" id="email" asp-for="Email" required />
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                    <div class="login-div">
+                        <label class="form-label" asp-for="Password"></label>
+                        <input class="form-control" id="password" asp-for="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Lösenordet måste innehålla minst en siffra samt minst en stor och en liten bokstav, minimum 5 tecken" required />
+                        <div class="password-checkbox">
+                            <input type="checkbox" onclick="myFunction()">Visa/Göm
+                            </div>
+                            <span asp-validation-for="Password"></span>
+                        </div>
+                        <div class="login-div">
+                            <label class="form-label" asp-for="PasswordRepeat"></label>
+                            <input class="form-control" id="passwordrepeat" asp-for="PasswordRepeat" required />
+                            <div class="password-checkbox">
+                                <input type="checkbox" onclick="myFunction1()" />Visa/Göm
+                            </div>
+                            <span asp-validation-for="PasswordRepeat"></span>
+                        </div>
+                    </div>
+                <button class="btn form-button" type="submit">Bli medlem</button>
+            </form>
+        </div>
+
+            @*<div class="d-flex justify-content-around">*@
+            @*</div>*@
+
+    </div>
+                <div class="container containerWithMaxWidth password-container d-flex justify-content-center align-items-center align-self-center"  >
+
+                    <div id="passwordmessage">
+                        <h5>Lösenordet måste innehålla:</h5>
+                        <p id="letter" class="invalid">En <b>liten</b> bokstav</p>
+                        <p id="capital" class="invalid">En <b>stor</b> bokstav</p>
+                        <p id="number" class="invalid">En <b>siffra</b></p>
+                        <p id="length" class="invalid">Minst <b>5 tecken</b></p>
+                    </div>
+                </div>
+
+</div>
+
+<script>
+    var myInput = document.getElementById("password");
+    var letter = document.getElementById("letter");
+    var capital = document.getElementById("capital");
+    var number = document.getElementById("number");
+    var length = document.getElementById("length");
+
+    // When the user clicks on the password field, show the message box
+    myInput.onfocus = function () {
+        document.getElementById("message").style.display = "block";
+    }
+
+    // When the user clicks outside of the password field, hide the message box
+    myInput.onblur = function () {
+        document.getElementById("message").style.display = "none";
+    }
+
+    // When the user starts to type something inside the password field
+    myInput.onkeyup = function () {
+        // Validate lowercase letters
+        var lowerCaseLetters = /[a-z]/g;
+        if (myInput.value.match(lowerCaseLetters)) {
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+        } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+        }
+
+        // Validate capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if (myInput.value.match(upperCaseLetters)) {
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+        } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+        }
+
+        // Validate numbers
+        var numbers = /[0-9]/g;
+        if (myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+        } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+        }
+
+        // Validate length
+        if (myInput.value.length >= 5) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+        } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+        }
+    }
+
+    function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+    function myFunction1() {
+        var x = document.getElementById("passwordrepeat");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+
+</script>

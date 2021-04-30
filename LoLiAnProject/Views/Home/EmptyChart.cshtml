@@ -1,0 +1,29 @@
+﻿@model Controller
+
+@{Layout = "_Layout";
+    ViewBag.Title = "Hoppsan!";
+}
+
+
+<header>
+    <h2>Hoppsan, här var det tomt!</h2>
+    <h4 class="index-subheading">Registrera din första dag och kom igång med att logga ditt mående.</h4>
+</header>
+<section class="d-flex align-items-center">
+
+    <div class="d-flex container-fluid flex-wrap justify-content-around overview-container">
+        <div class="d-flex flex-column justify-content-center align-items-center overview-box">
+            <div class="overview-content d-flex flex-column align-items-center justify-content-around">
+                <a class="overview-heading-link" asp-controller="Home" asp-action="Register">
+                    <h4 class="overview-heading">Jag vill registrera min dag</h4>
+                </a>
+                <a asp-controller="Home" asp-action="Register">
+                    <img class="overview-img" src="~/Image/register.svg" alt="ikon för att registrera din dag" />
+                </a>
+
+
+                </div>
+            </div>
+        </div>
+</section>
+

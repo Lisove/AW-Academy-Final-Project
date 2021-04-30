@@ -1,0 +1,721 @@
+﻿
+/* --- genomgående layout --- */
+body {
+    background-color: #10223d;
+    color: #f2eddb;
+    min-height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    /*    padding-bottom: 40px;*/
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 200%;
+}
+
+h3 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 200%;
+}
+
+h4 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h5 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+h6 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+section {
+    padding: 30px;
+    margin-bottom: 5px;
+}
+
+header {
+    margin-top: 0px;
+}
+
+.navigate-box {
+}
+
+.containerWithMaxWidth {
+    max-width: 700px;
+}
+
+/* --- navbar --- */
+nav {
+    background-color: #10223d;
+}
+
+.logo {
+    width: 50px;
+}
+
+.nav-content {
+    padding: 15px 30px;
+    max-width: 90%;
+}
+
+.nav-link {
+    color: #ffc2b4;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+    .nav-link:hover {
+        color: #d6533c;
+        text-decoration: underline;
+    }
+
+.burger {
+    width: 30px;
+    border: none;
+}
+/* --- index --- */
+h1 {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.index-heading {
+    text-align: center;
+    padding-top: 30px;
+    line-height: 200%;
+}
+
+.index-header {
+    min-height: 30vh;
+}
+.index-subheading {
+    font-weight: lighter;
+}
+/* --- about --- */
+.list-item {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.about-globala-link {
+    color: #f2eddb;
+}
+
+    .about-globala-link:hover {
+        color: #e69451;
+    }
+/* --- login --- */
+.container-login {
+    min-height: 40vh;
+}
+
+.login-div {
+}
+
+
+label {
+    font-size: 18px;
+}
+
+.form-control {
+    font-size: 16px;
+    background-color: #f2eddb;
+    width: 400px;
+}
+
+
+.form-button {
+    background-color: #e69451;
+    color: #10223d;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-top: 20px;
+    width: 175px;
+}
+
+    .form-button:hover {
+        background-color: #d6533c;
+        border: none;
+    }
+
+.password-checkbox {
+    padding: 5px;
+}
+/* --- sign up --- */
+.password-container {
+    box-shadow: 0 0 0 .9em #ffc2b4;
+    border-radius: 30px;
+    height: 250px;
+    width: 250px;
+}
+#passwordmessage {
+    padding: 10px;
+}
+/* --- register --- */
+
+.register {
+    border: 1px solid yellow;
+}
+
+.register-container {
+    /*    max-width: 80%;*/
+}
+
+.slider-container {
+    border: 1px solid red;
+    padding: 20px;
+}
+
+.notes-and-buttons-container {
+    border: 1px solid red;
+    padding: 20px;
+}
+
+.slider {
+    padding: 15px;
+}
+
+.reg-button {
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.ourSlider {
+    -webkit-appearance: none;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    border-radius: 10px;
+    height: 10px;
+    margin: 10px;
+    background-color: #f2eddb;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+.ourSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #d6533c;
+    padding: 5px;
+    position: relative;
+    top: 0px;
+    box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.6);
+}
+
+
+.paramLabel {
+    color: #f2eddb;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px;
+}
+
+    .paramLabel:hover {
+        color: #e69451;
+        text-decoration: underline;
+    }
+
+.notes {
+    padding: 10px;
+}
+
+.notes-textarea {
+    background-color: #f2eddb;
+    border-radius: 20px;
+    height: 150px;
+    width: 90%;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+
+.custom-file-upload {
+    border-radius: 20px;
+    background-color: #ffc2b4;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #10223d;
+}
+
+    .custom-file-upload:hover {
+        background-color: #d6533c;
+    }
+
+.info {
+    padding: 10px;
+    margin-left: 30px;
+}
+
+.read-more {
+    font-size: 14px;
+    padding: 10px;
+    display: none;
+}
+
+a:hover + span {
+    display: block;
+}
+
+
+/* --- overview --- */
+.overview-container {
+    min-height: 60vh;
+    max-width: 80%;
+}
+
+.overview {
+}
+
+.overview-heading {
+    color: #10223d;
+    font-weight: bold;
+}
+
+.overview-heading-link {
+    text-decoration: none;
+}
+
+    .overview-heading-link:hover {
+        text-decoration: underline;
+        color: #10223d;
+    }
+
+.overview-button {
+    background-color: #e69451;
+    color: #10223d;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+    .overview-button:hover {
+        background-color: #d6533c;
+        border: none;
+    }
+
+.overview-box {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: #f2eddb;
+    box-shadow: 0 0 0 .9em #ffc2b4;
+    /*box-shadow: 0 0 0 .9em #e69451;*/
+    margin: 30px;
+}
+
+    .overview-box:hover {
+        box-shadow: 0 0 0 .9em #e69451;
+    }
+
+.overview-img {
+    width: 100px;
+}
+
+.overview-content {
+    width: 80%;
+    height: 80%
+}
+
+
+/* --- details --- */
+.details-container {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 .9em #ffc2b4;
+}
+
+.btn-details {
+    margin: 5px;
+    padding: 10px;
+    color: #10223d;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+    .btn-details:hover {
+        background: #ffc2b4;
+    }
+
+.edit {
+    background: #e69451;
+}
+
+.delete {
+    background: #d6533c;
+}
+
+
+.img-upload {
+    width: 300px;
+    height: 300px;
+}
+/* --- details modal --- */
+.modal-header {
+    color: #10223d;
+    background-color: #f2eddb;
+}
+
+.modal-body {
+    color: #10223d;
+    background-color: #f2eddb;
+}
+
+.modal-footer {
+    color: #10223d;
+    background-color: #f2eddb;
+}
+
+.modal-keep {
+    background: #ffc2b4;
+    font-size: 16px;
+    border: none;
+}
+
+    .modal-keep:hover {
+        background: #ffc2b4;
+        border: none;
+        text-decoration: underline;
+    }
+
+.modal-delete {
+    background: #d6533c;
+    font-size: 16px;
+    border: none;
+}
+
+    .modal-delete:hover {
+        background: #d6533c;
+        border: none;
+        text-decoration: underline;
+    }
+
+
+/* --- details edit --- */
+.btn-update {
+    background-color: #e69451;
+    color: #10223d;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+    .btn-update:hover {
+        background-color: #ffc2b4;
+    }
+
+/* --- chart --- */
+#chartContainer {
+    min-height: 40vh;
+    max-height: 60vh;
+    width: 80%;
+}
+
+#dropdownMenu2 {
+    color: #f2eddb;
+    background-color: #10223d;
+    border: 3px solid #ffc2b4;
+    margin-top: 15px;
+    border-radius: 20px;
+}
+
+    #dropdownMenu2:hover {
+        text-decoration: underline;
+    }
+
+.dropdown-menu {
+    background-color: #f2eddb;
+    padding: 10px;
+}
+
+
+/* --- empty chart --- */
+.container-empty-chart {
+    min-height: 50vh;
+}
+
+/* --- range info --- */
+.range-container {
+    padding: 20px;
+    max-width: 900px;
+}
+
+.range-div {
+    margin: 30px 0px;
+}
+
+li {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+
+/* --- profile page --- */
+.profile-container {
+    min-height: 50vh;
+
+}
+
+th, td {
+    font-size: 18px;
+}
+
+.profile-link {
+    color: #ffc2b4;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+    text-decoration: none;
+    text-align: end;
+}
+
+    .profile-link:hover {
+        color: #d6533c;
+        text-decoration: underline;
+    }
+
+#subject, #message {
+    background-color: #f2eddb;
+    color: #10223d;
+}
+
+.contact-container {
+    min-height: 250px;
+}
+
+.btn-profile {
+    background-color: #e69451;
+    color: #10223d;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+    .btn-profile:hover {
+        background-color: #ffc2b4;
+    }
+
+/* --- edit user --- */
+.edit-user-container {
+    min-height: 50vh;
+}
+
+.edit-user-div {
+    padding: 15px;
+}
+
+
+/* --- footer --- */
+.footer {
+    background-image: url('../../Image/StorRosa.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 15%;
+    padding-top: 100px;
+}
+
+.footer-content {
+    color: #10223d;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+}
+
+.footer-fix {
+    margin-bottom: 75px;
+    padding: 75px;
+}
+
+.container-error {
+    margin-top: 100px;
+}
+
+
+/* --- register previous day calendar --- */
+
+#previousdate, focus {
+    color: #10223d;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-appearance: none;
+    height: 60px;
+    width: 170px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: 8px solid #e69451;
+    border-radius: 30px;
+    background: #f2eddb;
+    padding: 15px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+/*//-----overview-calender---*/
+.datepicker-toggle {
+    display: inline-block;
+    position: relative;
+    width: 90px;
+    height: 90px;
+}
+
+.datepicker-toggle-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../Image/calendar.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.datepicker-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+    .datepicker-input::-webkit-calendar-picker-indicator {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+    }
+
+.datepicker-toggle-2 {
+    display: inline-block;
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin: 10px;
+}
+
+.datepicker-toggle-button-2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*background-image: url('../../Image/calendar.svg');*/
+    /* background-repeat: no-repeat;*/
+    background-color: #f2eddb;
+    border: solid 5px #e69451;
+    border-radius: 20px;
+    /*        background-size: contain;
+*/
+}
+
+.datepicker-img {
+    height: 80px;
+    width: 80px;
+    padding: 7px;
+}
+
+#passwordmessage {
+/*    background-color: #10223d;
+    color: #f2eddb;
+    font-size: 10px;*/
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 60px;
+    }
+
+    h2 {
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 150%;
+    }
+
+    h3 {
+        font-size: 30px;
+        line-height: 150%;
+    }
+
+    h4 {
+        font-size: 25px;
+    }
+
+    h5 {
+        font-size: 15px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+    /* --- login/signup --- */
+    .form-control {
+        font-size: 14px;
+        width: 300px;
+    }
+    /* --- overview --- */
+    .overview-box {
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+        margin: 20px 0px;
+    }
+
+    .overview-img {
+        width: 50px;
+    }
+
+    .datepicker-toggle {
+        width: 50px;
+        height: 50px;
+    }
+    /* --- footer --- */
+    .img-upload {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* --- footer --- */
+    .footer {
+        height: 10%;
+    }
+}

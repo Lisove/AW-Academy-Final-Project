@@ -1,0 +1,142 @@
+﻿@model DetailsVM
+@{Layout = "_Layout";
+    ViewBag.Title = "Hur var din dag?";
+}
+
+<header>
+    <div class="container-sm">
+        <h2>Hur var din dag?</h2>
+        <h5>
+            @Model.Date.ToShortDateString()
+        </h5>
+    </div>
+</header>
+
+<section class="d-flex justify-content-around flex-wrap">
+    <div class="overview-content d-flex flex-column align-items-center justify-content-around">
+        <h5>Jag vill kika på en annan dag:</h5>
+        <span class="datepicker-toggle-2">
+            <span class="datepicker-toggle-button-2"><img class="datepicker-img" src="~/Image/calendar.svg" /></span>
+            <input type="date" class="datepicker-input" id="calenderview" name="detail" min="2000-01-01" max="@DateTime.Now.ToShortDateString()">
+        </span>
+    </div>
+</section>
+
+<section class="d-flex align-items-center flex-column">
+    <div class="container containerWithMaxWidth details-container">
+        <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+            Humör <i class="bi bi-info-circle"></i>
+        </a>
+        <input type="range" class="form-range ourSlider" value="@Model.Mood"  disabled>
+
+        <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+            Fysisk aktivitet <i class="bi bi-info-circle"></i>
+        </a>
+        <input type="range" class="form-range ourSlider" value="@Model.PhysicalActivity" disabled>
+
+        <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+            Stress <i class="bi bi-info-circle"></i>
+        </a>
+        <input type="range" class="form-range ourSlider" value="@Model.Stress" disabled>
+
+        <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+            Sömn <i class="bi bi-info-circle"></i>
+        </a>
+        <input type="range" class="form-range ourSlider" value="@Model.Sleep" disabled>
+
+        <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+            Psykiskt mående <i class="bi bi-info-circle"></i>
+        </a>
+        <input type="range" class="form-range ourSlider" value="@Model.MentalHealth" disabled>
+
+        <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+            Fysiskt mående <i class="bi bi-info-circle"></i>
+        </a>
+        <input type="range" class="form-range ourSlider" value="@Model.PhysicalHealth" disabled>
+
+    </div>
+    <div class="container containerWithMaxWidth d-flex flex-column details-container">
+
+        <div>
+            <h4>Dagens noteringar</h4>
+            <p>@Model.Notes</p>
+
+        </div>
+    </div>
+    @if (Model.ImagePath != null)
+    {
+        <div class="container containerWithMaxWidth d-flex flex-column align-items-center details-container">
+
+            <div>
+
+                <h4>Dagens bild</h4>
+            </div>
+            <div>
+
+                <img class="img-upload" src="~/Uploads/@Model.ImagePath" alt="Dagens Bild" />
+            </div>
+
+
+        </div>
+    }
+
+</section>
+<section class="container d-flex justify-content-center">
+    <a class="btn  btn-details edit" asp-controller="Home" asp-action="DetailsEdit" asp-route-date=" @Model.Date.ToShortDateString()">Ändra din dag</a>
+
+
+
+    <!-- Button trigger modal -->
+    <a class="btn btn-details delete" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Ta bort din dag
+    </a>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Vill du vill ta bort din dag för datum: @Model.Date.ToShortDateString()</h5>
+                </div>
+                <div class="modal-footer">
+                    <form>
+                        <div class="col-auto">
+                            <button class="btn btn-details modal-keep" id="reset" type="submit" name="name">Nej tack!</button>
+                        </div>
+                    </form>
+                    <form method="post" asp-controller="Home" asp-action="deleteDetailsModal" asp-route-date=" @Model.Date.ToShortDateString() ">
+                        <div class="col-auto">
+                            <button class="btn btn-details modal-delete" id="delete" name="date" value=" @Model.Date.ToShortDateString()">Ja tack!</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    var myModal = document.getElementById('myModal')
+    var myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', function () {
+        myInput.focus()
+    })
+</script>
+<script>
+    document.getElementById("calenderview").addEventListener("change", function () {
+        var input = this.value;
+        var url = "/home/details/" + input;
+        document.location.href = url;
+    });
+</script>
+
+
+
+

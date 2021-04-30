@@ -1,0 +1,98 @@
+﻿@model RegisterVM
+
+@{Layout = "_Layout";
+    ViewBag.Title = "Hur var din dag?";
+}
+
+<header>
+
+    <h2>Hur var din dag?</h2>
+    <h5>
+        @DateTime.Now.ToShortDateString()
+    </h5>
+</header>
+
+    <form method="post" asp-controller="home" asp-action="register" enctype="multipart/form-data">
+        @*left side*@
+        <section class="d-flex justify-content-around flex-wrap">
+
+            <div class="container containerWithMaxWidth details-container">
+
+                <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+                    Humör <i class="bi bi-info-circle"></i>
+                </a>@*<span class="read-more">Klicka för att läsa mer</span>*@
+                <input type="range" class="form-range ourSlider" asp-for="Mood" step="1" min="0" max="100" value="50">
+
+                <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+                    Fysisk aktivitet <i class="bi bi-info-circle"></i>
+                </a>@*<span class="read-more">Klicka för att läsa mer</span>*@
+                <input type="range" class="form-range ourSlider" asp-for="PhysicalActivity" step="1" min="0" max="100" value="50">
+
+                <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+                    Stress <i class="bi bi-info-circle"></i>
+                </a>@*<span class="read-more">Klicka för att läsa mer</span>*@
+                <input type="range" class="form-range ourSlider" asp-for="Stress" step="1" min="0" max="100" value="50">
+
+                <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+                    Sömn <i class="bi bi-info-circle"></i>
+                </a>@*<span class="read-more">Klicka för att läsa mer</span>*@
+                <input type="range" class="form-range ourSlider" asp-for="Sleep " step="1" min="0" max="100" value="50">
+
+
+                <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+                    Psykiskt mående <i class="bi bi-info-circle"></i>
+                </a>@*<span class="read-more">Klicka för att läsa mer</span>*@
+                <input type="range" class="form-range ourSlider" asp-for="MentalHealth " step="1" min="0" max="100" value="50">
+
+                <a class="paramLabel" asp-controller="home" asp-action="RangeInfo #PhysicalHealth" target="_blank">
+                    Fysiskt mående <i class="bi bi-info-circle"></i>
+                </a>@*<span class="read-more">Klicka för att läsa mer</span>*@
+                <input type="range" class="form-range ourSlider" asp-for="PhysicalHealth " step="1" min="0" max="100" value="50">
+
+
+                <input class="" asp-for="Date" type="hidden" id="date" name="date" value="@DateTime.Now.ToShortDateString()">
+
+            </div>
+
+            <div class="container containerWithMaxWidth d-flex flex-column justify-content-between details-container">
+
+                @*right side*@
+
+                <div class="notes">
+                    <label class="form-label" asp-for="Notes "></label>
+                    <textarea class="form-control notes-textarea" asp-for="Notes"></textarea>
+                </div>
+
+
+                <div class="file-div reg-button">
+                    <label class="form-label custom-file-upload" asp-for="ImageUpload">
+                        <span class="" asp-validation-for="ImageUpload">Ladda upp bild</span>
+                        <input class="form-control" type="file" asp-for="ImageUpload">
+                    </label>
+                    <span id="file-chosen">Ingen fil är vald</span>
+                </div>
+                <div class="reg-button">
+                    <button class="btn form-button" type="submit">Registrera min dag</button>
+                </div>
+            </div>
+      
+        </section>
+</form>
+
+<script>
+    const actualBtn = document.getElementById('ImageUpload');
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name
+    });
+</script>
+<script>
+    document.getElementById("detailview").addEventListener("change", function () {
+        var input = this.value;
+        var url = "/home/details/" + input;
+        document.location.href = url;
+    });
+</script>
+
+

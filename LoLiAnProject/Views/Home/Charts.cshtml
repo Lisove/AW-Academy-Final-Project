@@ -1,0 +1,162 @@
+﻿@model ChartsVM
+@{Layout = "_Layout";
+    ViewBag.Title = "Statistik"; }
+
+
+<header>
+    <h2>Statistik</h2>
+    <h4>Följ ditt mående på ditt sätt.</h4><br />
+</header>
+
+<div class="d-flex justify-content-center">
+    <div id="chartContainer"> </div>
+</div>
+<div class="container-sm d-flex justify-content-center">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <h6>Hur fungerar diagramet?</h6>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <p>
+                <i class="bi bi-toggle-on">&nbsp;Välj vilka parametrar du vill studera närmare. Klicka i och ut parametrarna under tidslinjen.</i>
+            </p>
+            <p>
+                <i class="bi bi-search"> &nbsp;Zoom in genom att dra markören över diagrammet. Det gråmarkerade området kommer att zoomas in.</i>
+            </p>
+            <p>
+                <i class="bi bi-arrows-move"> &nbsp;Tryck in denna knapp för att flytta digrammet längs tidslinjen.</i>
+            </p>
+            <p>
+                <i class="bi bi-arrow-clockwise"> &nbsp;Tryck på på denna knapp och du zoomar ut</i>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+window.onload = function () {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+
+        animationEnabled: true,
+        zoomEnabled: true,
+        rangeChanging: intervalTypeChanger,
+        backgroundColor: "#f2eddb",
+
+        axisX: {
+		    valueFormatString: "DD MMM YY",
+            labelAngle: -50,
+            interval: 1,
+        },
+
+        axisY: {
+		    title: "Status",
+            interval: 20,
+		    minimum: 0,
+            maximum: 110,
+            includeZero: false
+        },
+
+	    toolTip: {
+            enabled: false
+        },
+
+        legend: {
+            cursor: "pointer",
+            itemclick: function (e) {
+                if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                    e.dataSeries.visible = false;
+                } else {
+                    e.dataSeries.visible = true;
+                }
+                e.chart.render();
+            },
+            fontSize: 25,
+            fontFamily: "Quicksand",
+        },
+
+        data: [{
+            type: "spline",
+            name: "Humör",
+            lineThickness: 3,
+            showInLegend: true,
+            xValueType: "dateTime",
+            xValueFormatString: "YY-MM-DD",
+            yValueFormatString: "#",
+		    dataPoints: @Html.Raw(ViewBag.DataPointsMood)
+	    },{
+            type: "spline",
+            name: "Stress",
+            lineThickness: 3,
+            showInLegend: true,
+		    dataPoints: @Html.Raw(ViewBag.DataPointsStress)
+	    }, {
+            type: "spline",
+            name: "Sömn",
+            lineThickness: 3,
+            showInLegend: true,
+		    dataPoints: @Html.Raw(ViewBag.DataPointsSleep)
+	    }, {
+		    type: "spline",
+            name: "Fysisk aktivitet",
+            lineThickness: 3,
+            showInLegend: true,
+		    dataPoints: @Html.Raw(ViewBag.DataPointsPhysicalActivity)
+	    }, {
+            type: "spline",
+            name: "Psykiskt mående",
+            lineThickness: 3,
+            showInLegend: true,
+		    dataPoints: @Html.Raw(ViewBag.DataPointsMentalHealth)
+	    }, {
+            type: "spline",
+            name: "Fysiskt mående",
+            lineThickness: 3,
+            showInLegend: true,
+		    dataPoints: @Html.Raw(ViewBag.DataPointsPhysicalHealth)
+	    }]
+    });
+
+    var dpsLength = chart.options.data[0].dataPoints.length;
+    var lastDate = new Date(chart.options.data[0].dataPoints[dpsLength - 1].x); // New Date to convert timestamp to Date
+
+    chart.options.axisX.viewportMinimum = new Date(lastDate.getFullYear(), lastDate.getMonth() - 1, lastDate.getDate());
+
+    chart.render();
+        }
+
+        // Reference code snippet: http://jsfiddle.net/canvasjs/8e98Lej8/
+        function intervalTypeChanger(e) {
+            var hours = 1000 * 60 * 60;
+            if (e.trigger === "reset") {
+                e.chart.options.axisX.intervalType = null;
+                e.chart.options.axisX.viewportMinimum = e.chart.options.axisX.minimum;
+            }
+            else if (e.trigger === "zoom") {
+                //Hour (Comparing Hours)
+                if ((((e.axisX[0].viewportMaximum - e.axisX[0].viewportMinimum) / (hours)) < 24)) {
+                    e.chart.options.axisX.intervalType = "hour";
+                }
+                //Day (Comparing Days)
+                else if (((e.axisX[0].viewportMaximum - e.axisX[0].viewportMinimum) / (hours * 24)) < 7) {
+                    e.chart.options.axisX.intervalType = "day";
+                }
+                //Month (Comparing Months)
+                else if (((e.axisX[0].viewportMaximum - e.axisX[0].viewportMinimum) / (hours * 24 * 30)) < 30) {
+                    e.chart.options.axisX.intervalType = "month";
+                }
+                //Year (Comparing Years)
+                else if (((e.axisX[0].viewportMaximum - e.axisX[0].viewportMinimum) / (hours * 24 * 30 * 30)) < 12) {
+                    e.chart.options.axisX.intervalType = "year";
+                }
+            }
+            console.log(e.chart.options.axisX.intervalType)
+        }
+
+</script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+

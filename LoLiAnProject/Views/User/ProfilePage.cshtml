@@ -1,0 +1,81 @@
+﻿@model ProfilePageVM
+
+@{Layout = "_Layout";
+    ViewBag.Title = "Mitt konto";
+}
+
+<header>
+            <h2>Mitt konto</h2>
+
+</header>
+
+
+
+<section class="d-flex flex-column justify-content-between  container containerWithMaxWidth profile-container">
+
+    <div class="container-sm d-flex justify-content-center align-items-center">
+        <table class="profile-table">
+                <tr>
+                    <th>Namn: </th>
+                    <td>@Model.FirstName</td>
+                </tr>
+                <tr>
+                    <th>Användaramn: </th>
+                    <td>@Model.UserName</td>
+
+                </tr>
+                <tr>
+                    <th>E-post: </th>
+                    <td>@Model.Email</td>
+                </tr>
+        </table>
+
+        
+
+        @*<li class="list-group-item">Namn : @Model.FirstName</li>
+        <li class="list-group-item">Användarnamn: @Model.UserName</li>
+        <li class="list-group-item">E-post: @Model.Email</li>*@
+        @*<a class="profile-link" asp-controller="user" asp-action="edituser" asp-route-id=" @Model.UserName">Ändra mina uppgifter</a>*@
+
+
+    </div>
+
+          
+
+    </section>
+
+@*-----------------Kontaktfomrulär fixa i mån av tid----------------------------*@
+   
+ @*<section class="container container-login">
+        <div class="row">
+    <div class="container-sm d-flex flex-column justify-content-between contact-container">
+     
+
+            <h4>Behöver du komma i kontakt med oss? Använd formuläret nedan!</h4>
+
+        
+                <input id="subject" type="text" placeholder="Ange ämne"
+                       class="form-control contact">
+            
+                <input id="message" type="text" rows="5" placeholder="Skriv ditt meddelande här.."
+                       class="form-control contact">
+        
+          <button id="mail-link" class="btn btn-profile">Skicka e-post</button>
+
+      
+    </div>
+</section>
+
+    <script type="text/javascript">
+        function loadEvents() {
+            var mailString;
+            function updateMailString() {
+                mailString = '?subject=' + encodeURIComponent($('#subject').val())
+                    + '&body=' + encodeURIComponent($('#message').val());
+                $('#mail-link').attr('href', 'mailto:liloan@email.com' + mailString);
+            }
+            $("#subject").focusout(function () { updateMailString(); });
+            $("#message").focusout(function () { updateMailString(); });
+            updateMailString();
+        }
+    </script>*@

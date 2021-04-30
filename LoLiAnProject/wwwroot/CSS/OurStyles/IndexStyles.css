@@ -1,0 +1,49 @@
+﻿body {
+    /*    min-height: 100vh;*/
+
+    background-color: #10223d;
+    color: #f2eddb
+}
+h1 {
+    font-size: 100px;
+    font-weight: bold;
+}
+.index-heading {
+    text-align:center;
+padding-top: 30px;
+}
+.index-login {
+    background-color: #f2eddb;
+    color: #d6533c;
+}
+.index-login:hover {
+        transform: scale(1.1);
+        color: #d6533c;
+    }
+
+.index-signup {
+    background-color: #d6533c;
+    color: #f2eddb;
+}
+.index-signup:hover {
+        transform: scale(1.1);
+        color: #f2eddb;
+}
+.btn {
+    border-radius: 50px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.index-footer {
+   
+    background-image: url('../../Image/StorRosa.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20%;
+}
+.footer-content {
+    color: #10223d;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+}

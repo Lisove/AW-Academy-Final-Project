@@ -1,0 +1,88 @@
+﻿
+@model DetailsEditVM
+@{Layout = "_Layout";
+    ViewBag.Title = "Uppdatera din dag";
+}
+
+<header>
+    <h2>Hur var din dag?</h2>
+    <h5>
+        @Model.Date.ToShortDateString()
+    </h5>
+
+</header>
+
+
+
+<form method="post" asp-controller="home" asp-action="detailsedit" enctype="multipart/form-data">
+    <section class="d-flex align-items-center flex-column">
+        <div class="container containerWithMaxWidth details-container">
+
+            <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+                Humör <i class="bi bi-info-circle"></i>
+            </a>
+            <input class="form-range ourSlider" asp-for="Mood" step="1" min="0" max="100" value="@Model.Mood" type="range">
+
+
+            <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+                Fysisk aktivitet <i class="bi bi-info-circle"></i>
+            </a>
+            <input class="form-range ourSlider" asp-for="PhysicalActivity" step="1" min="0" max="100" value="@Model.PhysicalActivity" type="range">
+
+            <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+                Stress <i class="bi bi-info-circle"></i>
+            </a>
+            <input class="form-range ourSlider" asp-for="Stress" step="1" min="0" max="100" value="@Model.Stress" type="range">
+
+
+            <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+                Sömn <i class="bi bi-info-circle"></i>
+            </a>
+            <input class="form-range ourSlider" asp-for="Sleep " step="1" min="0" max="100" value="@Model.Sleep" type="range">
+            <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+                Psykiskt mående <i class="bi bi-info-circle"></i>
+            </a>
+            <input class="form-range ourSlider" asp-for="MentalHealth " step="1" min="0" max="100" value="@Model.MentalHealth" type="range">
+
+            <a class="paramLabel" asp-controller="home" asp-action="RangeInfo" target="_blank">
+                Fysiskt mående <i class="bi bi-info-circle"></i>
+            </a>
+            <input class="form-range ourSlider" asp-for="PhysicalHealth " step="1" min="0" max="100" value="@Model.PhysicalHealth" type="range">
+
+        </div>
+
+            <div class="container containerWithMaxWidth d-flex flex-column details-container">
+                <div class="notes">
+                    <label asp-for="Notes "></label>
+                    <textarea class="form-control notes-textarea" asp-for="Notes"></textarea>
+                </div>
+            </div>
+            <div class="container containerWithMaxWidth d-flex flex-column align-items-center details-container">
+                @if (Model.ImagePath != null)
+                {
+
+                    <img class="img-upload" src="~/Uploads/@Model.ImagePath" alt="Dagens Bild" />
+                }
+                <div class="file-div reg-button">
+                    <label class="form-label custom-file-upload" asp-for="ImageUpload">
+                        <span class="" asp-validation-for="ImageUpload">Byt bild</span>
+                        <input class="form-control" type="file" asp-for="ImageUpload">
+                    </label>
+                    <span id="file-chosen">Ingen fil är vald</span>
+                </div>
+            </div>
+     
+                <div>
+                    <button class="btn btn-update" type="submit" name="update">Uppdatera min dag</button>
+                </div>
+
+    </section>
+</form>
+<script>
+    const actualBtn = document.getElementById('ImageUpload');
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name
+    });
+</script>
