@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Globalization;
 
 namespace LoLiAnProject
 {
@@ -65,6 +66,9 @@ namespace LoLiAnProject
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("sv-SE");
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("sv-SE");
+
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
             else

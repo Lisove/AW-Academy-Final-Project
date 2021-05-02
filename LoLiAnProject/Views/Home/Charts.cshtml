@@ -86,37 +86,37 @@ window.onload = function () {
             xValueType: "dateTime",
             xValueFormatString: "YY-MM-DD",
             yValueFormatString: "#",
-		    dataPoints: @Html.Raw(ViewBag.DataPointsMood)
+		    dataPoints: @Html.Raw(ViewBag.DataPointsMood),
 	    },{
             type: "spline",
             name: "Stress",
             lineThickness: 3,
             showInLegend: true,
-		    dataPoints: @Html.Raw(ViewBag.DataPointsStress)
+		    dataPoints: @Html.Raw(ViewBag.DataPointsStress),
 	    }, {
             type: "spline",
             name: "Sömn",
             lineThickness: 3,
             showInLegend: true,
-		    dataPoints: @Html.Raw(ViewBag.DataPointsSleep)
+		    dataPoints: @Html.Raw(ViewBag.DataPointsSleep),
 	    }, {
 		    type: "spline",
             name: "Fysisk aktivitet",
             lineThickness: 3,
             showInLegend: true,
-		    dataPoints: @Html.Raw(ViewBag.DataPointsPhysicalActivity)
+		    dataPoints: @Html.Raw(ViewBag.DataPointsPhysicalActivity),
 	    }, {
             type: "spline",
             name: "Psykiskt mående",
             lineThickness: 3,
             showInLegend: true,
-		    dataPoints: @Html.Raw(ViewBag.DataPointsMentalHealth)
+		    dataPoints: @Html.Raw(ViewBag.DataPointsMentalHealth),
 	    }, {
             type: "spline",
             name: "Fysiskt mående",
             lineThickness: 3,
             showInLegend: true,
-		    dataPoints: @Html.Raw(ViewBag.DataPointsPhysicalHealth)
+		    dataPoints: @Html.Raw(ViewBag.DataPointsPhysicalHealth),
 	    }]
     });
 
